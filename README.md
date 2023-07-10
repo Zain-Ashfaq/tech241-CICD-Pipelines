@@ -28,10 +28,6 @@
 - Jenkins is an open-source automation server in which the central build and CI process take place.
 - Jenkins supports building, deploying, and automating for software development projects.
 
-## Practical Exercise
-
-- The article provides a step-by-step guide to create a Jenkins job, build a pipeline in Jenkins, and link the jobs using Docker.
-
 ## Other tools that can be used for CICD
 
 - GitLab CI/CD: GitLab offers an integrated CICD platform that combines version control, issue tracking, and CICD pipelines in a single application.
