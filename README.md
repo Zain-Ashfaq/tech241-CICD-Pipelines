@@ -21,7 +21,7 @@
 
 ## CI/CD Workflow
 
-- The CI/CD pipeline is all about automation: Initiating code builds, automated testing, and automated deploying to the staging or production environments.
+- The CI/CD pipeline is all about automation: Initiating code builds, automated testing, and automated deploying to the staging or production environments.![Alt text](images/jenkins.png)
 
 ## Jenkins
 
@@ -50,7 +50,22 @@ Implementing CICD pipelines can bring several business advantages:
 - Scalability: CICD pipelines enable scalability by providing a streamlined and repeatable process for deploying applications to various environments.
 - Risk reduction: Continuous integration catches integration issues early on, reducing the risk of critical failures in production.
 
-## Conclusion
+## Summary
 
 - Increase the frequency and pace of releases so you can innovate and improve your product faster.
 - Continuous integration and continuous delivery/deployment are practices that automate the software release process, from build to deploy in DevOps culture.
+
+## Creating SSH Key Pair and Adding Public Key to GitHub
+
+Use the command `ssh-keygen -t rsa -b 4096 -C "youremail@.com" -f tech241-zain-jenkins` to generate the SSH key pair.
+
+# Steps to Add SSH Key to GitHub:
+
+1. Log in to your GitHub account.
+2. Navigate to the "app" repository and then to settings by clicking on your profile picture.
+3. In the left sidebar, click on "Deploy keys".
+4. Click on "New SSH key".
+5. Give the key a title (e.g., "Jenkins SSH key").
+6. Copy the contents of the public key file and paste it into the "Key" field.
+7. Click on "Add SSH key" to save it.
+   ![Alt text](images/github-public-key.PNG)
