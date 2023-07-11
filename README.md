@@ -69,3 +69,43 @@ Use the command `ssh-keygen -t rsa -b 4096 -C "youremail@.com" -f tech241-zain-j
 6. Copy the contents of the public key file and paste it into the "Key" field.
 7. Click on "Add SSH key" to save it.
    ![Alt text](images/github-public-key.PNG)
+
+# Integration between Jenkins and Github
+
+## Setting up Jenkins
+
+**Step 1:** Copy the HTTPS URL from your Github repository and add it to the project URL field.
+
+**Step 2:** In the Source Code Management section, select 'GIT' and copy the SSH URL from your Github repository.
+![Alt text](images/source-code-management.jpg)
+**Step 3:** Add credentials by copying the private key (the pair of the public key from the app repo with the same name and exact content).
+
+**Step 4:** Change the branch name to `main`.
+
+**Step 5:** In the Build Environment section, select `Provide Node & npm bin/folder to PATH` and choose `SParta-Node-JS` so it can test our app.
+![Alt text](images/build-triggers.jpg)
+**Step 6:** In the Office 365 Connector, restrict where the node agent will test the app to separate it from the Node master.
+
+**Step 7:** Add your testing commands.
+![Alt text](images/build-enviroment.JPG)
+**Step 8:** Save the job. You are now ready to build and test.
+
+## Creating a webhook on GitHub with Jenkins
+
+### Configuring GitHub
+
+**Step 1:** Go to your GitHub repository and click on `Settings`.
+
+**Step 2:** Click on `Webhooks` and then click on `Add webhook`.
+
+**Step 3:** In the `Payload URL` field, paste your Jenkins environment URL. At the end of this URL add `/github-webhook/`. In the `Content type` select: `application/json` and leave the `Secret` field empty.
+![Alt text](images/webhooks.JPG)
+**Step 4:** In the page `Which events would you like to trigger this webhook?` choose `Let me select individual events.` Then, check `Pull Requests` and `Pushes`. At the end of this option, make sure that the `Active` option is checked and click on `Add webhook`.
+
+### Configuring Jenkins
+
+**Step 5:** In Jenkins, click on `New Item` to create a new project.
+
+**Step 6:** Click on the `Build Triggers` tab and then on the `GitHub hook trigger for GITScm polling`. Or, choose the trigger of your choice.
+![Alt text](images/end.JPG)
+After all of those steps, Jenkins will run the job every time we will push or pull changes from the app repo.
